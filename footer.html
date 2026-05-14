@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer - Garderie Canine 3R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2B5F4E;
+            --primary-light: #3D7A66;
+            --primary-dark: #1E4639;
+            --secondary: #D4A574;
+            --secondary-light: #E8C9A8;
+            --accent: #8B4513;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --dark: #2C2C2C;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --font-display: 'Abril Fatface', Georgia, serif;
+            --font-body: 'Lato', -apple-system, sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--dark); }
+        a { text-decoration: none; color: inherit; }
+
+        .elementor-section.elementor-section-boxed > .elementor-container { max-width: 100% !important; }
+        .elementor-widget-html { width: 100% !important; max-width: 100% !important; }
+
+        .footer {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            margin-left: calc(-50vw + 50%) !important;
+            margin-right: calc(-50vw + 50%) !important;
+            padding: 80px 0 40px;
+            background: #2C2C2C !important;
+            color: var(--white);
+        }
+
+        .footer .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 400; color: var(--white); margin-bottom: 16px; }
+        .footer-brand p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; line-height: 1.7; }
+
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 44px; height: 44px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease; color: var(--white); }
+        .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
+
+        .footer-col h4 { font-family: var(--font-body); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); margin-bottom: 24px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { font-size: 15px; color: rgba(255,255,255,0.7); transition: color 0.3s ease; }
+        .footer-col ul li a:hover { color: var(--white); }
+
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 15px; color: rgba(255,255,255,0.7); }
+        .footer-contact-item i { font-size: 16px; color: var(--secondary); margin-top: 4px; flex-shrink: 0; }
+        .footer-contact-item a { color: rgba(255,255,255,0.7); transition: color 0.3s ease; }
+        .footer-contact-item a:hover { color: var(--white); }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-bottom a { color: var(--secondary); transition: color 0.3s ease; }
+        .footer-bottom a:hover { color: var(--white); }
+
+        @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
+            .footer-contact-item { justify-content: center; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Garderie Canine 3R</h3>
+                    <p>L'endroit où votre chien se sentira aimé et soigné comme à la maison. Pension, garderie et éducation canine à Trois-Rivières.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/Garderiecanine3R/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <!-- CORRIGÉ: /services/ au lieu de /pension-et-garderie/ -->
+                        <li><a href="/services/">Pension et garderie</a></li>
+                        <li><a href="/photos/">Photos</a></li>
+                        <!-- CORRIGÉ: /contactez-nous/ au lieu de /contact/ -->
+                        <li><a href="/contactez-nous/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <!-- CORRIGÉ: /services/ au lieu de /pension-et-garderie/ -->
+                        <li><a href="/services/#forfaits-pension">Pension</a></li>
+                        <li><a href="/services/#forfaits-garderie">Garderie de jour</a></li>
+                        <li><a href="/contactez-nous/">Éducation canine</a></li>
+                        <li><a href="/contactez-nous/">Boutique</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>1440 rue Saint-François Xavier<br>Trois-Rivières, G9A 5X9</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:819-840-3920">819 840-3920</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:garderiecanine3r@outlook.com">garderiecanine3r@outlook.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Garderie Canine 3R — Refonte par <a href="https://cocktailmedia.ca">Cocktail Média</a></p>
+                <p>Connexion: <a href="https://garderiecanine3r.propetware.com/" target="_blank">Espace client</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

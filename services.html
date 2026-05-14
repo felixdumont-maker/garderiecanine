@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Pension et Garderie | Garderie Canine 3R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2B5F4E;
+            --primary-light: #3D7A66;
+            --primary-dark: #1E4639;
+            --secondary: #D4A574;
+            --secondary-light: #E8C9A8;
+            --accent: #8B4513;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --dark: #2C2C2C;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --font-display: 'Abril Fatface', Georgia, serif;
+            --font-body: 'Lato', -apple-system, sans-serif;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100% !important; max-width: 100% !important; overflow-x: hidden; }
+
+        body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--dark); background: var(--cream); }
+
+        section {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            margin-left: calc(-50vw + 50%) !important;
+            margin-right: calc(-50vw + 50%) !important;
+        }
+
+        .elementor-section.elementor-section-boxed > .elementor-container { max-width: 100% !important; }
+        .elementor-widget-html { width: 100% !important; max-width: 100% !important; }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 400; line-height: 1.2; }
+        img { max-width: 100%; height: auto; }
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .section-label { font-family: var(--font-body); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); margin-bottom: 12px; display: block; }
+        .section-title { font-size: clamp(2rem, 5vw, 3rem); color: var(--primary-dark); margin-bottom: 20px; }
+
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-family: var(--font-body); font-size: 15px; font-weight: 600; border-radius: 50px; border: none; cursor: pointer; transition: all 0.3s ease; color: #FFFFFF !important; }
+        .btn-primary { background: #2B5F4E !important; color: #FFFFFF !important; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); color: #FFFFFF !important; }
+        .btn-secondary { background: #D4A574 !important; color: #FFFFFF !important; }
+        .btn-secondary:hover { background: var(--accent); transform: translateY(-2px); color: #FFFFFF !important; }
+        .btn-outline { background: transparent !important; color: #FFFFFF !important; border: 2px solid #FFFFFF !important; }
+        .btn-outline:hover { background: #FFFFFF !important; color: #2B5F4E !important; }
+
+        .section-divider { width: 100%; height: 80px; background: var(--cream); display: flex; align-items: center; justify-content: center; }
+        .section-divider::before { content: "• • •"; color: var(--secondary); font-size: 24px; letter-spacing: 12px; }
+
+        /* ======== HERO ======== */
+        .hero {
+            position: relative; min-height: 70vh;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            overflow: hidden;
+        }
+        .hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
+        .hero-content { position: relative; z-index: 1; padding: 60px 24px; }
+        .hero-label { display: inline-block; padding: 8px 20px; background: rgba(255,255,255,0.15); border-radius: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary-light); margin-bottom: 24px; backdrop-filter: blur(10px); }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); color: var(--white); margin-bottom: 20px; text-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+        .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 40px; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .hero-paw { position: absolute; font-size: 120px; opacity: 0.08; color: var(--white); }
+        .hero-paw-1 { top: 10%; left: 5%; transform: rotate(-15deg); }
+        .hero-paw-2 { bottom: 15%; right: 8%; transform: rotate(25deg); }
+
+        /* ======== FONCTIONNEMENT ======== */
+        .fonctionnement { padding: 100px 0; background: var(--white); }
+        .fonctionnement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .fonctionnement-image { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+        .fonctionnement-image img { width: 100%; height: 450px; object-fit: cover; }
+        .fonctionnement-image::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to top, rgba(43,95,78,0.3), transparent); }
+        .fonctionnement-badge { position: absolute; bottom: 20px; left: 20px; background: var(--secondary); color: var(--white); padding: 12px 24px; border-radius: var(--radius-md); font-weight: 600; font-size: 14px; z-index: 1; }
+        .fonctionnement-content p { font-size: 17px; color: var(--gray); margin-bottom: 24px; }
+        .fonctionnement-content .highlight { background: linear-gradient(120deg, var(--secondary-light) 0%, var(--secondary-light) 100%); background-repeat: no-repeat; background-size: 100% 30%; background-position: 0 90%; font-weight: 600; color: var(--dark); }
+        .fonctionnement-buttons { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+
+        /* ======== AVANTAGES ======== */
+        .avantages { padding: 100px 0; background: var(--cream); }
+        .avantages-header { text-align: center; margin-bottom: 60px; }
+        .avantages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .avantage-card { background: var(--white); padding: 40px 28px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-sm); transition: all 0.4s ease; border: 1px solid transparent; }
+        .avantage-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--secondary-light); }
+        .avantage-icon { width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); box-shadow: 0 8px 24px rgba(43,95,78,0.3); }
+        .avantage-icon i { font-size: 32px; }
+        .avantage-card h3 { font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 12px; }
+        .avantage-card p { font-size: 15px; color: var(--gray); line-height: 1.6; }
+
+        /* ======== SERVICES 3 CARTES ======== */
+        .services { padding: 100px 0; background: var(--white); }
+        .services-header { text-align: center; margin-bottom: 60px; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .service-card { background: var(--cream); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: all 0.4s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .service-image { height: 200px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .service-image i { font-size: 56px; color: var(--white); position: relative; z-index: 1; }
+        .service-image::before { content: ""; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%); }
+        .service-card:nth-child(2) .service-image { background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%); }
+        .service-card:nth-child(3) .service-image { background: linear-gradient(135deg, #4A6FA5 0%, #166088 100%); }
+        .service-content { padding: 32px; }
+        .service-content h3 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 12px; }
+        .service-content p { font-size: 15px; color: var(--gray); margin-bottom: 24px; min-height: 72px; }
+        .service-content .btn { width: 100%; justify-content: center; }
+
+        /* ======== FORFAITS PENSION ======== */
+        .forfaits-pension { padding: 100px 0; background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%); }
+        .forfaits-header { text-align: center; margin-bottom: 60px; }
+        .forfaits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; }
+        .forfait-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: all 0.4s ease; position: relative; }
+        .forfait-card.featured { border: 3px solid var(--secondary); }
+        .forfait-card.featured::before { content: "\f005  Populaire"; font-family: "Font Awesome 6 Free", var(--font-body); font-weight: 900; position: absolute; top: 20px; right: -35px; background: var(--secondary); color: var(--white); padding: 6px 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; transform: rotate(45deg); z-index: 1; }
+        .forfait-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .forfait-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 32px; text-align: center; color: var(--white); }
+        .forfait-card.featured .forfait-header { background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%); }
+        .forfait-header h3 { font-size: 1.75rem; margin-bottom: 8px; }
+        .forfait-header .forfait-prix { font-size: 14px; opacity: 0.9; }
+        .forfait-body { padding: 32px; }
+        .forfait-description { font-size: 15px; color: var(--gray); margin-bottom: 24px; font-style: italic; }
+        .forfait-liste { list-style: none; margin-bottom: 32px; }
+        .forfait-liste li { padding: 12px 0; border-bottom: 1px solid var(--gray-light); display: flex; align-items: center; gap: 12px; font-size: 15px; }
+        .forfait-liste li:last-child { border-bottom: none; }
+        .forfait-liste li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--primary); color: var(--white); border-radius: 50%; font-size: 11px; flex-shrink: 0; }
+        .forfait-card.featured .forfait-liste li::before { background: var(--secondary); }
+        .forfait-bonus { background: var(--cream); padding: 16px; border-radius: var(--radius-md); margin-bottom: 24px; }
+        .forfait-bonus strong { color: var(--primary-dark); }
+        .forfait-body .btn { width: 100%; justify-content: center; }
+
+        /* ======== FORFAITS GARDERIE ======== */
+        .forfaits-garderie { padding: 100px 0; background: var(--primary-dark); position: relative; overflow: hidden; }
+        .forfaits-garderie::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+        .forfaits-garderie .container { position: relative; z-index: 1; }
+        .forfaits-garderie .forfaits-header { color: var(--white); }
+        .forfaits-garderie .section-title { color: var(--white); }
+        .garderie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .garderie-card { background: var(--white); border-radius: var(--radius-lg); padding: 36px 28px; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .garderie-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; }
+        .garderie-card:nth-child(1)::before { background: linear-gradient(90deg, #4A6FA5, #166088); }
+        .garderie-card:nth-child(2)::before { background: linear-gradient(90deg, var(--secondary), var(--accent)); }
+        .garderie-card:nth-child(3)::before { background: linear-gradient(90deg, #E88D8D, #C25B5B); }
+        .garderie-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .garderie-emoji { margin-bottom: 20px; }
+        .garderie-emoji i { font-size: 44px; }
+        .garderie-card:nth-child(1) .garderie-emoji i { color: #4A6FA5; }
+        .garderie-card:nth-child(2) .garderie-emoji i { color: var(--secondary); }
+        .garderie-card:nth-child(3) .garderie-emoji i { color: #E88D8D; }
+        .garderie-card h3 { font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 8px; }
+        .garderie-card .garderie-prix { font-family: var(--font-display); font-size: 1.75rem; color: var(--secondary); margin-bottom: 16px; display: block; }
+        .garderie-pour-qui { background: var(--cream); padding: 16px; border-radius: var(--radius-md); margin-bottom: 20px; font-size: 14px; color: var(--gray); font-style: italic; }
+        .garderie-card ul { list-style: none; text-align: left; margin-bottom: 24px; }
+        .garderie-card ul li { padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start; gap: 10px; }
+        .garderie-card ul li::before { content: "\f1b0"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 12px; color: var(--secondary); flex-shrink: 0; margin-top: 2px; }
+        .garderie-card .btn { width: 100%; justify-content: center; }
+
+        /* ======== TARIFS ======== */
+        .tarifs { padding: 100px 0; background: var(--white); }
+        .tarifs-header { text-align: center; margin-bottom: 60px; }
+        .tarifs-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto 60px; }
+        .tarif-box { background: var(--cream); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm); }
+        .tarif-box h3 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 24px; text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--secondary-light); }
+        .tarif-table { width: 100%; border-collapse: collapse; }
+        .tarif-table tr { border-bottom: 1px solid var(--gray-light); }
+        .tarif-table tr:last-child { border-bottom: none; }
+        .tarif-table td { padding: 14px 8px; font-size: 15px; }
+        .tarif-table td:last-child { text-align: right; font-weight: 600; color: var(--primary); }
+        .tarifs-notes { max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); padding: 32px 40px; color: var(--white); }
+        .tarifs-notes h4 { font-size: 1.25rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .tarifs-notes ul { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .tarifs-notes li { font-size: 14px; display: flex; align-items: center; gap: 10px; }
+        .tarifs-notes li::before { content: "→"; color: var(--secondary-light); }
+
+        /* ======== EXTRAS ======== */
+        .extras { padding: 100px 0; background: var(--cream); }
+        .extras-header { text-align: center; margin-bottom: 60px; }
+        .extras-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .extra-item { background: var(--white); padding: 32px 24px; border-radius: var(--radius-lg); text-align: center; transition: all 0.3s ease; border: 2px solid transparent; }
+        .extra-item:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .extra-icon { margin-bottom: 16px; }
+        .extra-icon i { font-size: 36px; color: var(--primary); }
+        .extra-item h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; }
+        .extra-item p { font-size: 13px; color: var(--gray); }
+
+        /* ======== CTA ======== */
+        .cta { padding: 100px 0; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); text-align: center; position: relative; overflow: hidden; }
+        .cta::before { content: "\f6d3"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; font-size: 300px; opacity: 0.05; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .cta-content { position: relative; z-index: 1; }
+        .cta h2 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white); margin-bottom: 16px; }
+        .cta p { font-size: 1.25rem; color: rgba(255,255,255,0.85); margin-bottom: 40px; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta .btn-outline { font-size: 17px; padding: 18px 48px; }
+        .cta .btn-secondary { font-size: 17px; padding: 18px 48px; }
+
+        /* ======== RESPONSIVE ======== */
+        @media (max-width: 1024px) {
+            .avantages-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid, .garderie-grid { grid-template-columns: repeat(2, 1fr); }
+            .garderie-grid .garderie-card:last-child { grid-column: span 2; max-width: 400px; justify-self: center; }
+            .extras-grid { grid-template-columns: repeat(2, 1fr); }
+            .forfaits-grid { grid-template-columns: 1fr 1fr; }
+            .forfaits-grid .forfait-card:first-child { grid-column: span 2; max-width: 500px; justify-self: center; }
+        }
+        @media (max-width: 768px) {
+            .fonctionnement-grid { grid-template-columns: 1fr; }
+            .fonctionnement-image { order: -1; }
+            .avantages-grid, .services-grid, .forfaits-grid, .garderie-grid, .tarifs-wrapper, .extras-grid { grid-template-columns: 1fr; }
+            .garderie-grid .garderie-card:last-child, .forfaits-grid .forfait-card:first-child { grid-column: auto; max-width: none; }
+            .tarifs-notes ul { grid-template-columns: 1fr; }
+            .hero-buttons, .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero">
+        <i class="fa-solid fa-paw hero-paw hero-paw-1"></i>
+        <i class="fa-solid fa-paw hero-paw hero-paw-2"></i>
+        <div class="hero-content">
+            <span class="hero-label">Garderie Canine 3R</span>
+            <h1>Pension et garderie</h1>
+            <p class="hero-subtitle">Offrez à votre compagnon un séjour confortable, stimulant et sécuritaire</p>
+            <div class="hero-buttons">
+                <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-secondary">Réservez maintenant</a>
+                <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SECTION 2: FONCTIONNEMENT -->
+    <section class="fonctionnement">
+        <div class="container">
+            <div class="fonctionnement-grid">
+                <div class="fonctionnement-image">
+                    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=450&fit=crop" alt="Chiens à la garderie">
+                    <span class="fonctionnement-badge">+ de 4000 pi²</span>
+                </div>
+                <div class="fonctionnement-content">
+                    <span class="section-label">Le fonctionnement</span>
+                    <h2 class="section-title">Comment ça marche?</h2>
+                    <p>Lors d'une première visite, nous avons besoin de prendre un rendez-vous pour une <span class="highlight">journée d'évaluation</span> afin d'évaluer le tempérament et les besoins de votre chien.</p>
+                    <p>Cette étape est <strong>obligatoire pour toutes nouvelles inscriptions</strong> et nous permet de bien connaître votre compagnon pour lui offrir la meilleure expérience possible.</p>
+                    <p><em>Note : Aucune agressivité envers le personnel n'est tolérée.</em></p>
+                    <div class="fonctionnement-buttons">
+                        <!-- CORRIGÉ: /contactez-nous/ au lieu de /contact/ -->
+                        <a href="/contactez-nous/" class="btn btn-secondary">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: AVANTAGES -->
+    <section class="avantages">
+        <div class="container">
+            <div class="avantages-header">
+                <span class="section-label">Pourquoi nous choisir</span>
+                <h2 class="section-title">Le plus à la Garderie Canine 3R</h2>
+            </div>
+            <div class="avantages-grid">
+                <div class="avantage-card">
+                    <div class="avantage-icon"><i class="fa-solid fa-dog"></i></div>
+                    <h3>Groupes adaptés</h3>
+                    <p>Nos groupes sont séparés par grosseur et tempérament pour le bien-être de tous</p>
+                </div>
+                <div class="avantage-card">
+                    <div class="avantage-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Surveillance constante</h3>
+                    <p>Vos compagnons sont sous supervision en tout temps par nos éducateurs canins</p>
+                </div>
+                <div class="avantage-card">
+                    <div class="avantage-icon"><i class="fa-solid fa-house"></i></div>
+                    <h3>Espaces généreux</h3>
+                    <p>Plus de 4000 pi² d'installations avec parcs intérieurs et extérieurs</p>
+                </div>
+                <div class="avantage-card">
+                    <div class="avantage-icon"><i class="fa-solid fa-baseball"></i></div>
+                    <h3>Équipements complets</h3>
+                    <p>30 loges confortables, piscines en été, et tout le nécessaire pour s'amuser</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: NOS SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-label">Notre service</span>
+                <h2 class="section-title">Ce que nous vous offrons!</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image"><i class="fa-solid fa-bed"></i></div>
+                    <div class="service-content">
+                        <h3>La pension</h3>
+                        <p>Séjours d'une nuit ou plus dans nos loges confortables. Sorties régulières le matin et l'après-midi incluses.</p>
+                        <a href="#forfaits-pension" class="btn btn-primary">Voir les forfaits</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><i class="fa-solid fa-sun"></i></div>
+                    <div class="service-content">
+                        <h3>La garderie de jour</h3>
+                        <p>Demi-journée ou journée complète de socialisation et de jeux supervisés avec ses copains canins.</p>
+                        <a href="#forfaits-garderie" class="btn btn-primary">Voir les forfaits</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="service-content">
+                        <h3>Éducation canine</h3>
+                        <p>Un service pour aider votre compagnon à améliorer ses comportements et ses aptitudes sociales.</p>
+                        <!-- CORRIGÉ: /contactez-nous/ au lieu de /contact/ -->
+                        <a href="/contactez-nous/" class="btn btn-primary">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FORFAITS PENSION -->
+    <section class="forfaits-pension" id="forfaits-pension">
+        <div class="container">
+            <div class="forfaits-header">
+                <span class="section-label">Nos forfaits</span>
+                <h2 class="section-title">Pension</h2>
+            </div>
+            <div class="forfaits-grid">
+                <div class="forfait-card featured">
+                    <div class="forfait-header">
+                        <h3>Grande Royauté</h3>
+                        <span class="forfait-prix">126$ / nuit</span>
+                    </div>
+                    <div class="forfait-body">
+                        <p class="forfait-description">Offrez à votre compagnon le meilleur séjour possible avec des activités stimulantes chaque jour!</p>
+                        <ul class="forfait-liste">
+                            <li>Séjour de base avec sorties régulières</li>
+                            <li>Promenade quotidienne</li>
+                            <li>Séance de fouille</li>
+                            <li>Séance de balle</li>
+                            <li>Kong farci</li>
+                        </ul>
+                        <div class="forfait-bonus">
+                            <strong><i class="fa-solid fa-gift"></i> Bonus inclus :</strong> Bain complet, nettoyage d'oreilles et coupe de griffes — repartez avec un toutou tout propre!
+                        </div>
+                        <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-secondary">Réserver ce forfait</a>
+                    </div>
+                </div>
+                <div class="forfait-card">
+                    <div class="forfait-header">
+                        <h3>Petite Royauté</h3>
+                        <span class="forfait-prix">85$ / nuit</span>
+                    </div>
+                    <div class="forfait-body">
+                        <p class="forfait-description">Gâtez toutou avec plein de surprises pour un séjour mémorable!</p>
+                        <ul class="forfait-liste">
+                            <li>Séjour de base avec sorties régulières</li>
+                            <li>Promenade quotidienne</li>
+                            <li>Collation glacée</li>
+                            <li>Séance de fouille</li>
+                            <li>Coupe de griffes</li>
+                        </ul>
+                        <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-primary">Réserver ce forfait</a>
+                    </div>
+                </div>
+                <div class="forfait-card">
+                    <div class="forfait-header">
+                        <h3>Séjour Régulier</h3>
+                        <span class="forfait-prix">48$ / nuit</span>
+                    </div>
+                    <div class="forfait-body">
+                        <p class="forfait-description">Un séjour confortable avec tout le nécessaire pour que votre chien se sente bien.</p>
+                        <ul class="forfait-liste">
+                            <li>Loge confortable</li>
+                            <li>Sorties régulières matin et après-midi</li>
+                            <li>Jeux avec les copains</li>
+                            <li>Surveillance constante</li>
+                        </ul>
+                        <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-primary">Réserver ce forfait</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FORFAITS GARDERIE -->
+    <section class="forfaits-garderie" id="forfaits-garderie">
+        <div class="container">
+            <div class="forfaits-header">
+                <span class="section-label" style="color: var(--secondary-light);">Nos forfaits</span>
+                <h2 class="section-title">Garderie de jour</h2>
+            </div>
+            <div class="garderie-grid">
+                <div class="garderie-card">
+                    <div class="garderie-emoji"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Journée Éducative</h3>
+                    <span class="garderie-prix">53$</span>
+                    <div class="garderie-pour-qui">
+                        <strong>Pour qui?</strong> Ton chien a horreur de l'enclos? Il n'est pas super habile avec ses copains? Tu aimerais améliorer certains comportements?
+                    </div>
+                    <ul>
+                        <li>Désensibilisation à l'enclos</li>
+                        <li>Amélioration des aptitudes sociales</li>
+                        <li>Correction des comportements indésirables</li>
+                        <li>S'amuser tout en travaillant!</li>
+                    </ul>
+                    <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-primary">Réserver ce forfait <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="garderie-card">
+                    <div class="garderie-emoji"><i class="fa-solid fa-person-running"></i></div>
+                    <h3>Journée Active</h3>
+                    <span class="garderie-prix">48$</span>
+                    <div class="garderie-pour-qui">
+                        <strong>Pour qui?</strong> Ton chien a « ben du gaz » comme on dit? Tu aimerais prendre ça relaxe ce soir?
+                    </div>
+                    <ul>
+                        <li>Jeux avec les copains</li>
+                        <li>Séance de jeux intense (balle, frisbee, tug...)</li>
+                        <li>Séance de fouille</li>
+                        <li>Kong farci avec mastication</li>
+                    </ul>
+                    <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-primary">Réserver ce forfait <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="garderie-card">
+                    <div class="garderie-emoji"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Journée Câline</h3>
+                    <span class="garderie-prix">48$</span>
+                    <div class="garderie-pour-qui">
+                        <strong>Pour qui?</strong> Tu as un chien plutôt câlin? Ou nerveux qui a besoin de douceur? Parfait pour les amoureux d'amour!
+                    </div>
+                    <ul>
+                        <li>Jeux avec les copains</li>
+                        <li>Séance de câlinage POUR LUI TOUT SEUL</li>
+                        <li>Marche avec son éducateur préféré</li>
+                        <li>Kong farci avec mastication</li>
+                    </ul>
+                    <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-primary">Réserver ce forfait <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: TARIFS -->
+    <section class="tarifs">
+        <div class="container">
+            <div class="tarifs-header">
+                <span class="section-label">Nos prix</span>
+                <h2 class="section-title">Tarifs</h2>
+                <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-primary" style="margin-top: 20px;">
+                    <i class="fa-solid fa-calendar-check"></i> Réserver maintenant
+                </a>
+            </div>
+            <div class="tarifs-wrapper">
+                <div class="tarif-box">
+                    <h3><i class="fa-solid fa-sun"></i> Garderie de jour</h3>
+                    <table class="tarif-table">
+                        <tr><td>Garderie de jour régulière</td><td>29$</td></tr>
+                        <tr><td>Demi-journée</td><td>24$</td></tr>
+                        <tr><td>Journée d'évaluation</td><td>36,75$</td></tr>
+                        <tr><td>Journée éducative</td><td>53$</td></tr>
+                        <tr><td>Journée active</td><td>48$</td></tr>
+                        <tr><td>Journée câline</td><td>48$</td></tr>
+                    </table>
+                </div>
+                <div class="tarif-box">
+                    <h3><i class="fa-solid fa-moon"></i> Pension</h3>
+                    <table class="tarif-table">
+                        <tr><td>Séjour régulier</td><td>48$ / nuit</td></tr>
+                        <tr><td>Forfait petite royauté</td><td>85$ / nuit</td></tr>
+                        <tr><td>Forfait grande royauté</td><td>126$ / nuit</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="tarifs-notes">
+                <h4><i class="fa-solid fa-clipboard-list"></i> Notes importantes</h4>
+                <ul>
+                    <li>Frais de médication : 5$ / jour</li>
+                    <li>Frais pour chien non-social : 5$ / jour</li>
+                    <li>Journée d'évaluation obligatoire pour tout nouveau client</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: EXTRAS -->
+    <section class="extras">
+        <div class="container">
+            <div class="extras-header">
+                <span class="section-label">À la carte</span>
+                <h2 class="section-title">Services extras</h2>
+            </div>
+            <div class="extras-grid">
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-scissors"></i></div>
+                    <h4>Coupe de griffes</h4>
+                    <p>Petit soin beauté pendant le séjour</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-bath"></i></div>
+                    <h4>Bain</h4>
+                    <p>Repartez avec un toutou tout propre</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-person-walking"></i></div>
+                    <h4>Promenade en laisse</h4>
+                    <p>30 minutes de marche individuelle</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>Séance privée</h4>
+                    <p>30 minutes avec un éducateur</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h4>Activité de fouille</h4>
+                    <p>Stimulation mentale garantie</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-ice-cream"></i></div>
+                    <h4>Collations spéciales</h4>
+                    <p>Kong congelé, gâteries glacées</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-bone"></i></div>
+                    <h4>Mastication</h4>
+                    <p>Produits de qualité pour le bonheur de toutou</p>
+                </div>
+                <div class="extra-item">
+                    <div class="extra-icon"><i class="fa-solid fa-tree"></i></div>
+                    <h4>Activités thématiques</h4>
+                    <p>Noël, Saint-Valentin, et plus!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à réserver?</h2>
+                <p>Offrez à votre compagnon l'expérience qu'il mérite.</p>
+                <div class="cta-buttons">
+                    <a href="https://garderiecanine3r.propetware.com/" target="_blank" class="btn btn-secondary">
+                        <i class="fa-solid fa-calendar-check"></i> Réserver en ligne
+                    </a>
+                    <!-- CORRIGÉ: /contactez-nous/ au lieu de /contact/ -->
+                    <a href="/contactez-nous/" class="btn btn-outline">Nous joindre</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

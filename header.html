@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header - Garderie Canine 3R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2B5F4E;
+            --primary-light: #3D7A66;
+            --primary-dark: #1E4639;
+            --secondary: #D4A574;
+            --secondary-light: #E8C9A8;
+            --accent: #8B4513;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --dark: #2C2C2C;
+            --gray: #6B7280;
+            --font-display: 'Abril Fatface', Georgia, serif;
+            --font-body: 'Lato', -apple-system, sans-serif;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--dark);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ======== HEADER ======== */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled { box-shadow: var(--shadow-md); }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        /* Logo */
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white);
+            font-size: 22px;
+        }
+
+        .header-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .header-logo-text span:first-child {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .header-logo-text span:last-child {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+
+        /* Navigation desktop */
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-nav a {
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .header-nav a:hover,
+        .header-nav a.active {
+            color: var(--primary);
+            background: var(--cream);
+        }
+
+        .header-nav .btn-connexion {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            margin-left: 8px;
+            border-radius: 50px;
+        }
+
+        .header-nav .btn-connexion:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .header-nav .btn-connexion i { margin-right: 6px; }
+
+        /* Mobile toggle */
+        .header-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 44px; height: 44px;
+            background: #2B5F4E !important;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .header-toggle span {
+            display: block;
+            width: 22px; height: 2px;
+            background: #FFFFFF !important;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .header-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header-toggle.active span:nth-child(2) { opacity: 0; }
+        .header-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Navigation mobile */
+        .header-nav-mobile {
+            display: none;
+            position: absolute;
+            top: 100%; left: 0; right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            padding: 20px 24px;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .header-nav-mobile.active { display: flex; }
+
+        .header-nav-mobile a {
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .header-nav-mobile a:hover,
+        .header-nav-mobile a.active {
+            color: var(--primary);
+            background: var(--cream);
+        }
+
+        .header-nav-mobile .btn-connexion {
+            background: var(--primary);
+            color: var(--white);
+            margin-top: 8px;
+        }
+
+        .header-nav-mobile .btn-connexion:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        /* Spacer */
+        .header-spacer { height: 80px; }
+
+        @media (max-width: 900px) {
+            .header-nav { display: none; }
+            .header-toggle { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- Logo -->
+                <a href="/" class="header-logo">
+                    <div class="header-logo-icon">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+                    <div class="header-logo-text">
+                        <span>Garderie</span>
+                        <span>Canine 3R</span>
+                    </div>
+                </a>
+
+                <!-- Navigation desktop -->
+                <nav class="header-nav">
+                    <a href="/">Accueil</a>
+                    <a href="/services/">Services</a>
+                    <a href="/photos/">Photos</a>
+                    <a href="/contactez-nous/">Contact</a>
+                    <a href="https://garderiecanine3r.propetware.com/" class="btn-connexion" target="_blank">
+                        <i class="fa-solid fa-user"></i>Connexion
+                    </a>
+                </nav>
+
+                <!-- Mobile toggle -->
+                <button class="header-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+            <!-- Navigation mobile -->
+            <nav class="header-nav-mobile">
+                <a href="/">Accueil</a>
+                <a href="/services/">Services</a>
+                <a href="/photos/">Photos</a>
+                <a href="/contactez-nous/">Contact</a>
+                <a href="https://garderiecanine3r.propetware.com/" class="btn-connexion" target="_blank">
+                    <i class="fa-solid fa-user"></i> Connexion
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <script>
+        function toggleMobileMenu() {
+            const toggle = document.querySelector('.header-toggle');
+            const mobileNav = document.querySelector('.header-nav-mobile');
+            toggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll(
+                '.header-nav a:not(.btn-connexion), .header-nav-mobile a:not(.btn-connexion)'
+            );
+
+            navLinks.forEach(function (link) {
+                const linkPath = link.getAttribute('href');
+                if (linkPath === '/' && (currentPath === '/' || currentPath === '')) {
+                    link.classList.add('active');
+                } else if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
